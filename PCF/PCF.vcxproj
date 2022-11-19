@@ -13,16 +13,16 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
     <Keyword>Qt4VSv1.0</Keyword>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ItemDefinitionGroup>
@@ -31,9 +31,10 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;../Src;../Src/MeshDoc;D:/VCG;../Src/gte;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;../Src;../Src/MeshDoc;../vcglib;../Src/gte;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</TreatWChar_tAsBuiltInType>
       <OpenMPSupport Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</OpenMPSupport>
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Console</SubSystem>
@@ -73,9 +74,10 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;../Src;../Src/MeshDoc;D:/VCG;../Src/gte;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;../Src;../Src/MeshDoc;../vcglib;../Src/gte;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <OpenMPSupport>true</OpenMPSupport>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
