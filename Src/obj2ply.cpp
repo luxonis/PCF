@@ -94,9 +94,9 @@ bool obj2ply(
 				r = (SampleN - mesh.vn) / squre;
 #endif
 				for (CMeshO::FaceIterator fi = mesh.face.begin(); fi != mesh.face.end(); ++fi) {
-					CVertexO *c0 = fi->cV(0);
-					CVertexO *c1 = fi->cV(1);
-					CVertexO *c2 = fi->cV(2);
+					const CVertexO *c0 = fi->cV(0);
+					const CVertexO *c1 = fi->cV(1);
+					const CVertexO *c2 = fi->cV(2);
 					vcg::Point3f n = tri_norm(c0->cP(), c1->cP(), c2->cP());
 					int k = tri_area(c0->cP(), c1->cP(), c2->cP()) * r + 0.5;
 					for (int i = 0; i < k; ++i) {

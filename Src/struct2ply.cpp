@@ -8,7 +8,7 @@
 #include <vcg/space/index/kdtree/kdtree.h>
 #include <vcg/complex/algorithms/point_sampling.h>
 
-#include <windows.h> 
+#include <windows.h>
 #include <fstream>
 #include <iostream>
 #include <io.h>
@@ -117,7 +117,7 @@ int SampleTri(
 
 int SamplePatch(
     const ObjPatch *patch,
-    vector<vcg::Point3f> &vert, 
+    vector<vcg::Point3f> &vert,
     vector<vcg::Point3f> &norm,
     vector<vcg::Color4b> &color,
     const int k)
@@ -272,7 +272,7 @@ int SampleSolid(
            double s_l = s - 2 * s_c;
            int k1 = k*(s_c / s) / _CirN+0.5;
            int k2 = k*(s_l / s) / (_CirN*2) + 0.5;
-           
+
 
            vcg::Point3f u, v;
            vcg::GetUV(n1, u, v);
@@ -311,10 +311,11 @@ void ReSample(
     const std::string &PlyFile,
     const unsigned int number_sample)
 {
+    using namespace vcg::tri;
     MeshModel *SrtMM = 0;
     int mask = 0;
     SrtMM = new MeshModel(PlyFile.c_str(), "");
-    int ret = vcg::tri::io::Importer<CMeshO>::Open(SrtMM->cm, PlyFile.c_str(), mask);
+    int ret = io::Importer<CMeshO>::Open(SrtMM->cm, PlyFile.c_str(), mask);
 
     MeshModel *DstMM = new MeshModel("", "");
     float radius = SurfaceSampling<CMeshO, MeshSampler<CMeshO>>::ComputePoissonDiskRadius(SrtMM->cm, number_sample);
@@ -322,7 +323,7 @@ void ReSample(
     SurfaceSampling<CMeshO, MeshSampler<CMeshO>>::PoissonDiskParam pp;
     SurfaceSampling<CMeshO, MeshSampler<CMeshO>>::PoissonDiskPruningByNumber(mps, SrtMM->cm, number_sample, radius, pp, 0.005);
     mask = DstMM->mask();
-    ret = vcg::tri::io::Exporter<CMeshO>::Save(DstMM->cm, PlyFile.c_str(), mask);
+    ret = io::Exporter<CMeshO>::Save(DstMM->cm, PlyFile.c_str(), mask);
     delete SrtMM;
     delete DstMM;
 }
@@ -342,7 +343,7 @@ bool struct2ply(
     string outply = PlyFile;
     if (outply.empty())
         outply = StructFile.substr(0, StructFile.rfind('.')) + ".ply";
-    
+
     double TotalS = CalArea(*objset);
 
 	cout
@@ -351,7 +352,7 @@ bool struct2ply(
 		<< "[ -----          Struct2Ply          ----- ]\n"
 		<< "[>] " << StructFile << " --> " << outply
 		<< endl;
-	
+
 	double r = number_sample*1.0 / TotalS;
 	vector<vcg::Point3f> vert;
 	vector<vcg::Point3f> norm;
@@ -364,7 +365,7 @@ bool struct2ply(
         int k = CalArea(objset->m_SolidList[i])*r + 0.5;
         SampleSolid(objset->m_SolidList[i], vert, norm, color, k);
     }
-       
+
 	cout << ">> # Number of Points :" << vert.size() << endl;
 	if (savePly(outply.c_str(), vert, norm, color) != vert.size()) {
 		cout << ">> [Error] : Failed to Save Ply File." << endl;
