@@ -31,6 +31,15 @@ The accuracy and completeness estimations for 3D reconstruction can be utilized 
 + [GCO](http://vision.csd.uwo.ca/code/) (Embedded)
 + [GTEngine](https://www.geometrictools.com/Downloads/Downloads.html) (Embedded)
 
+## Building
+
+1. First prepare Qt - [Qt Installer](https://www.qt.io/download-qt-installer) - Select Qt 5.15.2 MSVC2019 under components
+2. Search for 'Edit the system environment variables' and add a User variable QTDIR which equals to the installed folder and the MSVC toolchain, eg: `C:\Qt\5.15.2\msvc2019_64`
+3. Open PCF.sln with Visual Studio
+4. Build solution
+
+Tested with Visual Studio 2022
+
 ## Examples
 
 Detection results of the test data:
