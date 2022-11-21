@@ -12,10 +12,10 @@ using std::string;
 #pragma comment(lib,"winmm.lib")
 
 const std::string ReconInputDir = "../TestData/Ply/Recon";
-const std::string ReconOutputDir = "../TestData/Ply/Recon";
+const std::string ReconOutputDir = "../TestData/Ply/ReconOut";
 
 const std::string SynInputDir = "../TestData/Ply/Syn/50K_00U_00D";
-const std::string SynOutputDir = "../TestData/Ply/Syn/50K_00U_00D";
+const std::string SynOutputDir = "../TestData/Ply/SynOut/50K_00U_00D";
 
 PCFit::ProType proType = PCFit::Steps_All;
 
@@ -107,4 +107,3 @@ int main(int argc, char *argv[])
     return 0;
 
 }
-  
